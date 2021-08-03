@@ -10,10 +10,10 @@
     >
       <div class="todo-content todo-div" v-for="element in todo" :key="element.id" @click="selectTask(element.id)">
         <div class="circle text-center mr-5" :class="{ active: !element.active }">
-          <img src="@/assets/img/icon-check.svg" v-if="!element.active" alt="" />
+          <img src="@/assets/img/icon-check.svg" class="check-circle" v-if="!element.active" alt="" />
         </div>
         <div
-          class="text-left todo-text"
+          class="text-left todo-text todo-main-text"
           :class="{ 'todo-check': !element.active }"
         >
           {{ element.text }}

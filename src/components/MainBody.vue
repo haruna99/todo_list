@@ -29,19 +29,13 @@
     <div class="todo-list mt-5">
       <v-card>
         <span v-if="all">
-          <Todo
-            :todo="todos"
-          />
+          <Todo :todo="todos" />
         </span>
         <span v-if="completed">
-          <Todo
-            :todo="completedList"
-          />
+          <Todo :todo="completedList" />
         </span>
         <span v-if="active">
-          <Todo
-            :todo="activeList"
-          />
+          <Todo :todo="activeList" />
         </span>
         <div class="actions">
           <v-fade-transition leave-absolute>
@@ -77,8 +71,7 @@
                       <div class="text-center py-15" style="font-size: 70px">
                         &#128686;
                       </div>
-
-                      Do you want to delete all completed tasks?
+                      <h2>Do you want to delete all completed tasks?</h2>
                     </div>
                   </v-card-text>
                   <v-card-actions class="justify-end">
@@ -86,12 +79,14 @@
                       text
                       @click="
                         dialog.value = false;
-                        clearCompleted();
-                      "
+                        clearCompleted();"
+                      class="action-btn"
                       color="green darken-1"
                       >Yes</v-btn
                     >
-                    <v-btn color="red" text @click="dialog.value = false"
+                    <v-btn color="red"
+                      class="action-btn"
+                     text @click="dialog.value = false"
                       >No</v-btn
                     >
                   </v-card-actions>
@@ -119,7 +114,11 @@
         </div>
       </div>
     </v-card>
-    <div class="footer text-center mt-10">Drag and drop to reorder list</div>
+    <div class="text-center mt-10">
+      <p class="foot" :class="{ 'foot-dark': mode == 'dark' }">
+        Drag and drop to reorder list
+      </p>
+    </div>
   </div>
 </template>
 
@@ -194,6 +193,9 @@ export default {
 </script>
 
 <style lang="scss">
+.action-btn {
+  font-size: 1.5rem !important;
+}
 .delete-dialog-dark {
   background-color: hsl(235, 24%, 19%) !important;
   .text-h6 {
@@ -201,15 +203,27 @@ export default {
   }
 }
 
+.foot-dark {
+  color: #fff !important;
+}
+
 .main-body {
-  width: 35rem;
+  width: 50rem;
   padding-bottom: 4.5rem;
   margin-left: 50%;
-  margin-top: -15rem;
+  margin-top: -18rem;
   transform: translateX(-50%);
   .todo-input,
   .todo-text {
-    width: 29rem;
+    width: 39rem;
+  }
+
+  .check-circle {
+    padding: 0.9rem;
+  }
+
+  .foot {
+    font-size: 1.3rem;
   }
 
   .footer {
@@ -247,6 +261,15 @@ export default {
         color: hsl(220, 98%, 61%);
       }
     }
+  }
+
+  .icon {
+    margin-top: 0.9rem;
+  }
+
+  .todo-main-text {
+    font-size: 1.3rem;
+    margin-top: 0.6rem;
   }
 
   .hide-actions-2 {
@@ -304,10 +327,10 @@ export default {
 
     .logo {
       color: #fff;
-      font-size: 2.5rem;
+      font-size: 3.5rem;
       text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 1rem;
+      letter-spacing: 1.5rem;
     }
   }
 
@@ -318,8 +341,8 @@ export default {
     display: flex;
 
     .circle {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
       border: 1px solid hsl(233, 11%, 84%);
       &:hover {
@@ -328,7 +351,7 @@ export default {
     }
   }
   .todo-div {
-    border-bottom: 1px solid hsl(233, 11%, 84%);
+    border-bottom: 0.1px solid hsl(233, 11%, 84%);
   }
 
   .todo-list .todo-content {
@@ -375,8 +398,8 @@ export default {
   .todo-list .todo-content,
   .actions {
     .circle {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
       border: 1px solid hsl(235, 19%, 35%) !important;
       &:hover {
