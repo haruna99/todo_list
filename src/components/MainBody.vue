@@ -427,6 +427,7 @@ export default {
     .v-input {
       font-size: 20px;
       width: 20rem;
+      
     }
 
     .navbar {
