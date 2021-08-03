@@ -30,26 +30,17 @@
       <v-card>
         <span v-if="all">
           <Todo
-            v-for="(todo, index) in todos"
-            :key="index"
-            :ind="index"
-            :todo="todo"
+            :todo="todos"
           />
         </span>
         <span v-if="completed">
           <Todo
-            v-for="(todo, index) in completedList"
-            :key="index"
-            :todo="todo"
-            :ind="index"
+            :todo="completedList"
           />
         </span>
         <span v-if="active">
           <Todo
-            v-for="(todo, index) in activeList"
-            :ind="index"
-            :key="index"
-            :todo="todo"
+            :todo="activeList"
           />
         </span>
         <div class="actions">
@@ -77,9 +68,6 @@
           <div>
             <v-dialog transition="dialog-top-transition" max-width="600">
               <template v-slot:activator="{ on, attrs }">
-                <!-- <v-btn color="primary" v-bind="attrs" v-on="on"
-                  >From the top</v-btn
-                > -->
                 <button v-bind="attrs" v-on="on">Clear Completed</button>
               </template>
               <template v-slot:default="dialog">
@@ -230,6 +218,7 @@ export default {
 
   .todos {
     cursor: pointer;
+    margin-bottom: 1px solid red;
   }
 
   .actions {
@@ -337,6 +326,9 @@ export default {
         border: 1px solid hsl(280, 87%, 65%) !important;
       }
     }
+  }
+  .todo-div {
+    border-bottom: 1px solid hsl(233, 11%, 84%);
   }
 
   .todo-list .todo-content {

@@ -16,6 +16,9 @@ export default {
 .header {
   height: 40vh;
   background-image: url("../assets/img/bg-desktop-light.jpg");
+  // width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header-dark {
