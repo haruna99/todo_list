@@ -412,8 +412,8 @@ export default {
 @media screen and (max-width: 600px) {
   .main-body {
     width: 100%;
-    margin-top: -14rem;
-    padding: 0rem 1.5rem 4.5rem 1.5rem;
+    margin-top: -20rem;
+    padding: 0rem 3.5rem 4.5rem 3.5rem;
     transform: translateX(-50%);
     .todo-input,
     .todo-text {
@@ -426,12 +426,12 @@ export default {
 
     .v-input {
       font-size: 20px;
-      width: 16rem;
+      width: 20rem;
     }
 
     .navbar {
       .logo {
-        font-size: 2rem;
+        font-size: 2.3rem;
         letter-spacing: 0.6rem;
         margin-top: 0.5rem;
       }
@@ -445,6 +445,10 @@ export default {
 
     .todo-text {
       font-size: 12px;
+      margin-top: 0.3rem;
+    }
+
+    .icon {
       margin-top: 0.3rem;
     }
 
@@ -473,7 +477,7 @@ export default {
   .main-body {
     .v-input {
       font-size: px;
-      width: 13rem;
+      width: 18rem;
     }
 
     .hide-actions-1 {
